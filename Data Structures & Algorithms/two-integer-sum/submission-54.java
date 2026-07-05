@@ -1,0 +1,14 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // create hashmap, this hashmap will store number and indices
+        HashMap<Integer, Integer> indices = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int diff = target - nums[i];
+            if (indices.containsKey(diff) && indices.get(diff) != i) {
+                return new int[] {indices.get(diff), i};
+            }
+            indices.put(nums[i], i);
+        }
+        return new int[] {1,1};
+    }
+}
